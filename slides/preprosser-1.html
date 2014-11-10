@@ -1,0 +1,126 @@
+<section id="fragment2">
+<h1>Sass = Preprocessor</h1>
+<ul>
+	<li class="fragment">Sass står for (Syntactically Awesome Style Sheets)</li>
+	<li class="fragment">Sass er en extension som gør det nemmere at arbejde med css</li>
+</ul>
+</section>
+<section>
+<h1>Setuppet</h1>
+<h2 class="fragment">Sass kører som udgangspunkt på ruby</h2>
+<h3 class="fragment">MEN kan også anvendes med:</h3>
+<ul>
+	<li class="fragment">libSass — a C/C++ port af Sass engine</li>
+	<li class="fragment">Node-sass — libSass for Node.js</li>
+	<li class="fragment">LibSass Python — libSass for Python</li>
+</ul>
+</section>
+<section>
+	<h2>Sass installeres ved at hente ruby</h2>
+	<iframe width="960" height="400" src="http://rubyinstaller.org"></iframe>		
+</section>
+<section>
+	<h2>derefter ruby command line</h2>
+	<pre><code data-trim>gem install sass</code></pre>
+	<pre><code data-trim>sass --watch input.scss:output.css</code></pre>
+</section>
+<section>
+<h2>Hvordan hjælper Sass ?</h2>
+<ul>
+	<li class="fragment">Fordel 1 - Organisering og vedligeholdelse</li>
+	<li class="fragment">Fordel 2 - Variabler</li>
+	<li class="fragment">Fordel 3 - Scripting i css</li>
+	<li class="fragment">Fordel 4 - minificering af css samt samling af regler</li>
+	<li class="fragment">Fordel 5 - Masser af hjælpe utilities</li>
+</ul>
+</section>
+<section>
+<h2>Fordel 1 - Organisering og vedligeholdelse</h2>
+<p class="fragment">Gamle måde en css-fil med kommentarer</p>
+<ul class="fragment">
+<li>Sass gør brug af partials, hvilket betyder at man kan have små css filer (.scss filer) liggende i ens filstruktur
+	<ul class="tree">
+	<li>screen.scss
+	<ul>
+		<li>_variables.scss</li>
+		<li>_base.scss</li>
+		<li>_layout.scss</li>
+	</ul>
+	</li>
+</ul>
+</li>
+<li class="fragment">Dette gør det nemmere at vedligeholde ens css og minimerer chancen for fejl i css, da man vil få bygge fejl når man compiler sit sass.</li>
+</ul> 
+<aside class="notes">
+Ulempen i dette er at skal man skille kode fra skal man ind i denne fil og fjerne det, hvilket åbner op for fejl.
+Vis eksempel på dette.
+</aside>
+</section>
+<section>
+<h2>Fordel 2 - Variabler</h2>
+<p>Variabler i sass gør det lettere at sikrer ensartethed i designet</p>
+<pre><code>$primary-color: #003366;
+$color-secondary: #00497a;
+$color-highlight: #ff9600;
+$color-muted: #eef;</code></pre>
+<pre><code>h1{
+	color: $primary-color;
+}
+</code></pre>
+<aside class="notes">
+
+</aside>
+</section>
+<section>
+<h2>Fordel 3 - Scripting i css</h2>
+<p>Variabler i sass gør det lettere at sikrer ensartethed i designet</p>
+<pre><code>@mixin font-size( $value ) {
+  font-size: ( $value ) * 1px;
+  font-size: ( $value / $base-font-size ) * 1rem;
+}</code></pre>
+<p>http://sass-lang.com/documentation/Sass/Script/Functions.html</p>
+<iframe src="http://sass-lang.com/documentation/Sass/Script/Functions.html" width="100%" height="500"></iframe>
+<aside class="notes">
+Ulempen i dette er at skal man skille kode fra skal man ind i denne fil og fjerne det, hvilket åbner op for fejl.
+Vis eksempel på dette.
+https://developers.google.com/web/fundamentals/getting-started/web-starter-kit/setting-up
+</aside>
+</section>
+<section>
+<h2>Fordel 4 - minificering af css samt samling af regler</h2>
+<p class="fragment">Sass kan minificer css</p>
+<p class="fragment">Sass kan samle css regler ved hjælp af @extend</p> 
+<pre class="fragment"><code>
+.button{
+	margin: 0; padding: 0 20px; background-color: #003384;
+}
+.button-alt{
+	@extend .button;
+	background-color: #000000;
+}
+
+genererer flg:
+.button, .button-alt{
+	margin: 0; padding: 0 20px; background-color: #003384;
+}
+button-alt{
+	background-color: #000000;
+}
+</code></pre>
+<aside class="notes">
+Ulempen i dette er at skal man skille kode fra skal man ind i denne fil og fjerne det, hvilket åbner op for fejl.
+Vis eksempel på dette.
+https://developers.google.com/web/fundamentals/getting-started/web-starter-kit/setting-up
+</aside>
+</section>
+<section>
+<h2>Fordel 5 - Masser af hjælpe utilities</h2>
+<p>sass frameworks</p>
+		<ul>
+			<li>Compass</li>
+			<li>Bourbon</li>
+			<li>Suzy</li>
+		</ul>
+		<p>http://thesassway.com/</p>
+		<p>http://sassmeister.com</p>
+</section>

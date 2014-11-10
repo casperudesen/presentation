@@ -1,0 +1,79 @@
+<section data-transition="linear" id="fragment4">
+<h2>Det sværeste i frontend - navngivning</h2>
+<h2 class="fragment">BEM, Smacss, OOCSS, atomic design</h2>
+<h3 class="fragment">Fælles for alle strukturering af html og css</h3>
+<p class="fragment">
+Block, element and modifier<br>
+https://bem.info/method/
+</p>
+<p class="fragment">
+Scalable and Modular architecture for css<br>
+https://smacss.com/
+</p>
+<p class="fragment">
+object oriented css<br>
+http://oocss.org/
+</p>
+</section>
+<section data-transition="linear">
+	<h2>Hvorfor bør de anvendes ?</h2>
+	<ul>
+		<li class="fragment">De tvinger dig til at genanvende og arve fra hinanden</li>
+		<li class="fragment">Gør din kode mere effektiv (load tid)</li>
+		<li class="fragment">Gør det nemmere at videreudvikle</li>
+	</ul>
+</section>
+<section data-transition="linear">
+	<h2>Eksempel på fejl strukturering</h2>
+<pre><code>
+<ul class="newsbox">
+	<li><a href="#">link</a></li>
+	<li><a class="linkbutton" href="#">link2</a></li>
+</ul>
+.newsbox{
+	li{
+		a{
+	
+		}
+	}
+}
+</code></pre>
+</section>
+<section data-transition="linear">
+	<h2>Eksempel på korrekt strukturering</h2>
+<pre><code>
+<ul class="newsbox">
+	<li class="newsbox__item">
+	<a class="newsbox__link" href="#">link</a>
+	</li>
+	<li class="newsbox__item">
+	<a class="newsbox__button" href="#">link2</a>
+	</li>
+</ul>
+.newsbox{}
+.newsbox__item{}
+.newsbox__link{}
+.newsbox__button{
+	@extend .button;
+}
+</code></pre>
+</section>
+<section data-transition="linear">
+	<h2>Eksempel på nyt nyheds modul med små modifikationer</h2>
+	<pre><code>
+<ul class="newsbox">
+	<li class="newsbox__item--alt">
+	<a class="newsbox__link" href="#">link</a>
+	</li>
+	<li class="newsbox__item">
+	<a class="newsbox__button" href="#">link2</a>
+	</li>
+</ul>
+.newsbox__item{}
+.newsbox__item--alt{
+	@extend .newsbox__item;
+}
+</code></pre>	
+</section>
+
+

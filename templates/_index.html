@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Frontend Processer</title>
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="bower_components/reveal.js/css/reveal.min.css">
+    
+        <link rel="stylesheet" href="css/theme.css" id="theme">
+
+        
+    
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="bower_components/reveal.js/lib/css/zenburn.css" id="highlight-theme">
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+          if( window.location.search.match( /print-pdf/gi ) ) {
+            var link = document.createElement( 'link' );
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = 'bower_components/reveal.js/css/print/pdf.css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
+            }
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+        <div class="headersymbol"></div>
+
+<svg width="112" height="60" class="logo" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <path id="logo" d="M14.0152,8.0000019073c-3.4457-0.000841-5.6558,2.3316-5.6562,5.9375v20.125c0.00042,3.606,2.2105,5.9379,5.6562,5.9375h1.5312v-3.9062h-0.8125c-1.2972,0-2-0.6941-2-2.0938v-20c0-1.3997,0.70276-2.0942,2-2.0938h0.8125v-3.9062h-1.5312zm79.438,0v3.9062h0.8125c1.2974-0.00042,1.9688,0.6941,1.9688,2.0938v20c0,1.3996-0.6713,2.0938-1.9688,2.0938h-0.8125v3.9062h1.5312c3.4457,0.00034,5.6558-2.3313,5.6562-5.9375v-20.125c-0.001-3.6052-2.211-5.9378-5.657-5.937h-1.5312zm-64.313,3.9063v8.0625c-1.2543-1.1982-2.7459-1.625-4.2188-1.625-4.0362,0-7.2188,3.1344-7.2188,7.5312,0,4.5447,3.2425,7.5625,7.2188,7.5625,1.4297,0,3.0746-0.44594,4.2188-1.625v1.25h4.3438v-21.156h-4.3438zm58.781,0.03125c-3.4457-0.000841-5.6559,2.3318-5.6562,5.9375v0.8125h-2.25v3.8125h2.25v10.875h4.4062v-10.875h3.125v-3.8125h-3.125v-0.875c0-1.3999,0.70255-2.0942,2-2.0938h1.4062v-3.7812h-2.1562zm-23.937,6.4064c-2.9431,0-4.7364,1.2856-5.6875,2.5938l2.9062,2.4375c0.95238-0.74356,1.4983-1.0938,2.5312-1.0938,1.8919,0,3.5,1.4446,3.5,3.5938,0,2.1485-1.6081,3.5938-3.5,3.5938-1.0577,0-1.5578-0.25888-2.5625-1.0312l-2.875,2.375c0.95112,1.308,2.7444,2.625,5.6875,2.625,4.3998,0,7.7812-2.8622,7.7812-7.5625,0-4.6708-3.3815-7.5312-7.7812-7.5312zm11.781,0.25c-1.2712,0-2.3438,1.0728-2.3438,2.3438,0,1.2714,1.0726,2.3438,2.3438,2.3438s2.3438-1.0724,2.3438-2.3438c0-1.271-1.0726-2.3438-2.3438-2.3438zm-40.656,0.125l4.375,14.344h4.4375l2.4375-7.75,2.4062,7.75h4.4688l4.3438-14.344h-4.25l-2.4688,8.3438-2.8438-8.3438h-3.375l-2.8438,8.3438-2.4688-8.3438h-4.2188zm-9.3438,3.625c1.4001,0,2.6607,0.82315,3.375,1.7188v3.6562c-0.8098,0.99254-1.867,1.7188-3.375,1.7188-2.0187,0-3.5938-1.3131-3.5938-3.5625,0-2.2496,1.575-3.5312,3.5938-3.5312zm50,6.2812c-1.2712,0-2.3438,1.0728-2.3438,2.3438,0,1.2714,1.0726,2.3438,2.3438,2.3438s2.3438-1.0724,2.3438-2.3438c0-1.271-1.0726-2.3438-2.3438-2.3438z" />
+  </defs>
+  <use fill="#a8d040" xlink:href="#logo" x="0" y="0" />
+</svg>
+
+
+            <div class="slides">
+                <% _.forEach(slides, function(slide) { %>
+                    <% if (!_.isArray(slide)) { %>
+                        <%= section(slide) %>
+                    <% } %>
+                    <% if (_.isArray(slide)) { %>
+                        <section>
+                            <% _.forEach(slide, function(verticalslide) { %>
+                                <%= section(verticalslide) %>
+                            <% }); %>
+                        </section>
+                    <% } %>
+                <% }); %>
+            </div>
+
+        </div>
+
+        <script src="bower_components/reveal.js/lib/js/head.min.js"></script>
+        <script src="bower_components/reveal.js/js/reveal.min.js"></script>
+        <script>
+            // Configure Reveal
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'bower_components/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'bower_components/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'bower_components/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'bower_components/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'bower_components/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'bower_components/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+                    // { src: 'bower_components/reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+                    //{ src: 'bower_components/reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+
+                    { src: 'js/loadhtmlslides.js', condition: function() { return !!document.querySelector( '[data-html]' ); } }
+                ]
+            });
+        </script>
+<svg class="footerlogo" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     width="154px" height="154px" viewBox="0 0 154 154" enable-background="new 0 0 154 154" xml:space="preserve">
+<circle fill="#BAD636" cx="77" cy="77" r="77"/>
+<g>
+    <path fill="#FFFFFF" d="M104.3,94.4c0.7-2.2,1-5,0.2-8.2c-0.6-2.6-1.6-4.9-2.7-6.7c-0.6-3-1.2-6.1-1.8-9.5
+        c-4.2-21.1-6.3-35.7-12.6-37.2C81.1,31.4,72.9,43.6,60,60.9c-2,2.7-4,5.3-5.7,7.7c-1.8,1.2-3.6,2.8-5.3,4.9
+        c-2.1,2.6-3.1,5.2-3.3,7.5c-4.3,6.6-6.9,11.7-7.9,15.8c-1.5,6.6,1.9,11.5,18.9,15.4c1.8,0.4,3.4,0.7,4.8,1c4.3,1,5.9,1.6,5.9,7.7
+        c2.7-5.5,4.4-5.4,8.7-4.4c1.4,0.3,2.9,0.7,4.8,1.2c17,3.9,22.2,0.8,23.7-5.7C105.5,107.9,105.3,102.2,104.3,94.4z M103.4,86.4
+        c2,8.6-3.3,13-5.7,14.5c0.4-2,0.6-5.8-2.8-9.9c-2.3-2.8-5-4.4-7.7-5.9c-2.6-1.5-5.1-2.9-6.7-5.4c-1.7-2.7-2-4.3-2-5.2
+        c1.9,0.2,3.2-0.8,3.7-2.8l0.5-2.1l0.1,0c0.8,2,2.5,3.5,4.7,4c1.9,0.4,3.8,0,5.3-1C96.6,74.5,101.6,78.5,103.4,86.4z M73.2,51.1
+        c-0.3-0.1-0.6-0.2-0.8-0.2c3.4-1.9,7.2-2.7,11.3-1.8c4.1,0.9,7.2,3.4,9.4,6.5c-0.3-0.1-0.5-0.1-0.9-0.2c-4.7-0.7-7.7,0.9-8.5,4.4
+        L83,63c-0.5-0.7-1.2-1.3-2.1-1.5c-0.9-0.2-1.8,0-2.6,0.4l0.7-3.2C79.8,55.2,77.8,52.5,73.2,51.1z M77.8,64.3
+        c0.4-1.2,1.6-1.9,2.8-1.6c1.2,0.3,2,1.5,1.9,2.7l-1.4,6.1c-0.4,1.6-1.3,2.3-2.9,1.9c-1.6-0.4-2.2-1.3-1.8-3L77.8,64.3z M83.5,65.7
+        c0.7-3,3.7-4.9,6.7-4.2c3,0.7,4.9,3.7,4.2,6.7c-0.7,3-3.7,4.9-6.7,4.2C84.8,71.8,82.9,68.8,83.5,65.7L83.5,65.7
+        C83.5,65.8,83.5,65.8,83.5,65.7z M100.3,77.2c-2-2.6-4.4-4.3-6.5-5.4c0.9-0.9,1.5-2,1.8-3.3c0-0.1,0-0.1,0-0.2l3.1,0.7
+        c0.1,0.4,0.2,0.8,0.2,1.1C99.4,72.6,99.8,74.9,100.3,77.2z M95.7,67.2c0.1-3.2-2-6-5.2-6.8c-2.3-0.5-4.6,0.2-6.1,1.8l0.5-2.2
+        c0.9-3.8,4.4-4,7.3-3.6c1.1,0.2,1.9,0.4,2,0.4c2.1,3.3,3.5,7.5,4.3,10.9L95.7,67.2z M87.1,33.9c4.5,1,6.9,11.4,9.8,26.1
+        c-2.5-5.6-6.4-10.5-12.9-12c-6.5-1.5-12.2,1.2-16.8,5.2C76,41.2,82.6,32.8,87.1,33.9z M71,51.7c0.1,0,0.9,0.1,1.9,0.4
+        c2.8,0.8,5.9,2.6,5,6.4l-0.5,2.1c-0.8-2.1-2.5-3.7-4.8-4.2c-3.2-0.7-6.4,1-7.6,3.9l-2.7-0.6C64.8,56.8,67.9,53.7,71,51.7z
+         M76.6,64.2c-0.7,3-3.7,4.9-6.7,4.2c-3-0.7-4.9-3.7-4.2-6.7c0.7-3,3.7-4.9,6.7-4.2C75.4,58.2,77.3,61.2,76.6,64.2
+        C76.6,64.2,76.6,64.2,76.6,64.2L76.6,64.2z M60.9,61.5c0.2-0.3,0.5-0.6,0.7-0.9l3.1,0.7c0,0.1,0,0.1,0,0.1
+        c-0.3,1.3-0.2,2.6,0.2,3.7c-2.4,0.1-5.3,0.7-8.2,2.1C58,65.5,59.4,63.6,60.9,61.5z M49.8,74.2c5.1-6.3,11.3-7.8,15.5-7.9
+        c0.9,1.6,2.4,2.8,4.3,3.2c2.2,0.5,4.4-0.2,6-1.6l0.1,0l-0.5,2.1c-0.5,2,0.3,3.5,2.1,4.1c-0.4,0.8-1.3,2.1-4,3.8
+        c-2.5,1.6-5.4,1.8-8.4,2c-3,0.2-6.1,0.4-9.4,2c-4.8,2.3-6.4,5.8-6.8,7.7C47.2,87.3,44.4,81.1,49.8,74.2z M81.1,116.7
+        c-1-0.2-1.9-0.4-2.7-0.7c-0.7-0.2-1.4-0.4-2-0.5c-3.7-0.8-5.9-0.9-8.1,2c-0.7-3.6-2.7-4.4-6.5-5.3c-0.6-0.1-1.3-0.3-2.1-0.4
+        c-0.8-0.2-1.8-0.4-2.7-0.6c-16.8-3.8-19.4-8.4-18.1-14.1c0.8-3.6,3.1-8.2,6.7-13.9c0.2,4.9,3.1,8.3,3.1,8.3l0.9,1.1l0-1.4
+        c0-0.2,0.2-5.3,6.4-8.2c3.1-1.5,6.1-1.7,9.1-1.9c3.1-0.2,6.1-0.4,8.9-2.2c1.6-1,2.8-2,3.6-3c0.3,1.2,1,2.6,2,4.3
+        c1.7,2.8,4.3,4.3,7.1,5.8c2.5,1.5,5.2,3,7.4,5.6c4.3,5.3,2.3,9.9,2.3,10.1l-0.6,1.3l1.3-0.6c0.1,0,4.1-1.9,6.4-6.2
+        c0.8,6.8,0.9,11.8,0.1,15.4C102.2,117.5,97.9,120.5,81.1,116.7z"/>
+    <path fill="#FFFFFF" d="M89.8,63.6c-1.9-0.4-3.8,0.8-4.2,2.7l1.1,0.2c0.3-1.3,1.6-2.1,2.9-1.8c1.3,0.3,2.1,1.6,1.8,2.9l1.1,0.2
+        C92.9,66,91.7,64.1,89.8,63.6z"/>
+    <path fill="#FFFFFF" d="M71.7,60.6c1.3,0.3,2.1,1.6,1.8,2.9l1.1,0.2c0.4-1.9-0.8-3.8-2.7-4.2c-1.9-0.4-3.8,0.8-4.2,2.7l1.1,0.2
+        C69.1,61.1,70.4,60.3,71.7,60.6z"/>
+</g>
+</svg>
+    </body>
+
+</html>

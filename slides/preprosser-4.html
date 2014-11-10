@@ -1,0 +1,70 @@
+<section data-transition="linear"  data-background-transition="slide">
+<h2>Frontend build tools</h2>
+<h3>Grunt, gulp broccoli</h3>
+</section>
+<section data-transition="linear" data-background-transition="slide">
+	<h2>Fordel ved build tools ?</h2>
+	<ul>
+		<li>Automatisering af processer</li>
+		<li>Minimerer fejl i frontend kode js/html/css</li>
+		<li>Effektivicerer loadtid billeder/js</li>
+	</ul>		
+</section>
+<section data-transition="linear" data-background-transition="slide">
+	<h2>Hvilke "plugins" bør som minimum anvendes ?</h2>
+	<ul>
+		<li>grunt-contrib-concat - samler filer til en fil</li>
+		<li>grunt-contrib-uglify - minificerer og kan checke for fejl i js</li>
+		<li>grunt-contrib-imagemin - stripper billeder for extra informatiion</li>
+		<li>grunt-contrib-compass eller grunt-contrib-sass - håndterer sass</li>
+	</ul>
+	<p>Der findes lignede plugins til gulp</p>		
+</section>
+<section data-transition="linear" data-background-transition="slide">
+<h2>Setup alle tools kører node.js</h2>
+<p>installer node fra http://nodejs.org/<p>
+<iframe src="http://nodejs.org/" width="100%" height="400"></iframe>
+</section>
+<section data-transition="linear" data-background-transition="slide">
+<p>Grunt</p>
+<iframe src="http://gruntjs.com/" width="100%" height="400"></iframe>
+</section>
+<section data-transition="linear" data-background-transition="slide">
+	<h2>Grunt vs gulp</h2>
+	<ul>
+		<li>Grunt har et større ecosystem</li>
+		<li>Gulp er på mange måder hurtigere</li>
+		<li>Konfigurationsmæssig er gulp nemmere</li>
+		<li>Men har en mindre plugin base</li>
+	<ul>
+</section>
+<section data-transition="linear" data-background-transition="slide">
+	<h2>Grunt installation</h2>
+			<ul>
+				<li><a target="_blank" href="http://gruntjs.com/getting-started">http://gruntjs.com/getting-started</a></li>
+				<li>npm install -g grunt-cli (installeres globalt)</li>
+				<li>Grunt køre ud fra en package.json fil som indeholder de plugins du anvender</li>
+				<li>Plugins installeres via npm install <module> --save-dev.
+				<li>Og så anvender grunt en gruntfile.js som er selve konfigurationsfilen</li>
+				<li>Der findes et hav af eksempler på en start gruntfile.js</li>
+			</ul>
+</section>
+<section data-transition="linear" data-background-transition="slide">
+	<h2>Grunt installation</h2>
+			<ul>
+				<li><a target="_blank" href="https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md">https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md</a></li>
+				<li>npm install --global gulp (installeres globalt)</li>
+				<li>Gulp køre ligesom grunt ud fra en package.json fil</li>
+				<li>Derefter npm install --save-dev gulp bliver skrevet ind i din package.json</li>
+				<li>Ligesom grunt anvender gulp en gulpfile.js som er selve konfigurationsfilen</li>
+				<li>Der findes et hav af eksempler på hvordan det gøres på <a href="https://github.com/gulpjs/gulp/tree/master/docs/recipes">https://github.com/gulpjs/gulp/tree/master/docs/recipes</a></li>
+			</ul>
+</section>
+<section data-transition="linear" data-background-transition="slide">
+	<h2>Eksempel på grunt package.json</h2>
+			<pre>
+				<code></code>
+			</pre>
+</section>
+
+
